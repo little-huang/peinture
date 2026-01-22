@@ -716,7 +716,7 @@ export const CreationView: React.FC = () => {
                         <button 
                             onClick={handleGenerate}
                             disabled={isWorking || !prompt.trim() || isTranslating}
-                            className="group relative flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 text-slate-900 dark:text-white text-on-accent text-lg font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-purple-900/40 generate-button-gradient hover:shadow-purple-700/50 disabled:opacity-70 disabled:cursor-not-allowed disabled:grayscale"
+                            className="group relative flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 text-slate-900 dark:text-white text-on-accent text-lg font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-purple-900/40 generate-button-gradient hover:shadow-purple-700/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale"
                         >
                             {isLoading || isTranslating ? (
                                 <div className="flex items-center gap-2">

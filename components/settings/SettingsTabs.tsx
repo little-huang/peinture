@@ -68,7 +68,7 @@ export const SettingsTabs: React.FC<SettingsTabsProps> = ({ tabs, activeTab, set
                     </button>
                 ))}
             </div>
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0D0B14] via-[#0D0B14]/80 to-transparent flex items-center justify-center pointer-events-none">
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white dark:from-[#0D0B14] via-white/80 dark:via-[#0D0B14]/80 to-transparent flex items-center justify-center pointer-events-none">
                 <button
                     onClick={handleScrollTabsRight}
                     disabled={!canScrollTabs}
