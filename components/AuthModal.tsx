@@ -28,13 +28,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     return (
         <div className="fixed inset-0 z-[200] flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-            <div className="w-full max-w-sm bg-[#0D0B14] border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col items-center gap-4">
+            <div className="w-full max-w-sm bg-slate-50 dark:bg-[#0D0B14] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col items-center gap-4">
                 <div className="p-3 bg-red-500/10 rounded-full">
                     <Lock className="w-8 h-8 text-red-400" />
                 </div>
                 <div className="text-center">
-                    <h3 className="text-xl font-bold text-white mb-2">{t.access_password_title}</h3>
-                    <p className="text-white/60 text-sm">{t.access_password_desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t.access_password_title}</h3>
+                    <p className="text-slate-600 dark:text-white/60 text-sm">{t.access_password_desc}</p>
                 </div>
                 
                 <input 
@@ -42,7 +42,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={passwordValue}
                     onChange={(e) => onPasswordChange(e.target.value)}
                     placeholder={t.access_password_placeholder}
-                    className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white text-center focus:outline-none transition-colors ${error ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-purple-500'}`}
+                    className={`w-full px-4 py-3 bg-slate-900/5 dark:bg-white/5 border rounded-xl text-slate-900 dark:text-white text-center focus:outline-none transition-colors ${error ? 'border-red-500/50 focus:border-red-500' : 'border-slate-900/10 dark:border-white/10 focus:border-purple-500'}`}
                     onKeyDown={(e) => e.key === 'Enter' && onSubmit()}
                 />
                 
@@ -54,13 +54,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     <button 
                         onClick={onSubmit}
                         disabled={!passwordValue}
-                        className="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full py-3 bg-purple-600 hover:bg-purple-500 text-on-accent font-bold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {t.confirm}
                     </button>
                     <button 
                         onClick={onSwitchLocal}
-                        className="w-full py-3 bg-transparent hover:bg-white/5 text-white/60 hover:text-white font-medium rounded-xl transition-all text-sm"
+                        className="w-full py-3 bg-transparent hover:bg-slate-900/5 dark:hover:bg-white/5 text-slate-600 dark:text-white/60 hover:text-slate-900 dark:hover:text-white font-medium rounded-xl transition-all text-sm"
                     >
                         {t.switch_to_local}
                     </button>

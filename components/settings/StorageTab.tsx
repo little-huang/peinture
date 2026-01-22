@@ -33,38 +33,38 @@ export const StorageTab: React.FC<StorageTabProps> = (props) => {
             <div className="space-y-6">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.s3_access_key}</label>
-                        <input type="text" value={props.s3Config.accessKeyId} onChange={(e) => props.setS3Config({ ...props.s3Config, accessKeyId: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono" />
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.s3_access_key}</label>
+                        <input type="text" value={props.s3Config.accessKeyId} onChange={(e) => props.setS3Config({ ...props.s3Config, accessKeyId: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono" />
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.s3_secret_key}</label>
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.s3_secret_key}</label>
                         <div className="relative w-full">
-                            <input type={showS3Secret ? "text" : "password"} value={props.s3Config.secretAccessKey} onChange={(e) => props.setS3Config({ ...props.s3Config, secretAccessKey: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono pr-8" />
-                            <button type="button" onClick={() => setShowS3Secret(!showS3Secret)} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/30 hover:text-white">{showS3Secret ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
+                            <input type={showS3Secret ? "text" : "password"} value={props.s3Config.secretAccessKey} onChange={(e) => props.setS3Config({ ...props.s3Config, secretAccessKey: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono pr-8" />
+                            <button type="button" onClick={() => setShowS3Secret(!showS3Secret)} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 hover:text-slate-900 dark:hover:text-white">{showS3Secret ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
                         </div>
                     </div>
                     <div className="flex gap-4">
                         <div className="flex-1 space-y-1">
-                            <label className="text-xs font-medium text-white/60 block">{t.s3_bucket}</label>
-                            <input type="text" value={props.s3Config.bucket || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, bucket: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
+                            <label className="text-xs font-medium text-slate-600 dark:text-white/60 block">{t.s3_bucket}</label>
+                            <input type="text" value={props.s3Config.bucket || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, bucket: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
                         </div>
                         <div className="w-1/3 space-y-1">
-                            <label className="text-xs font-medium text-white/60 block">{t.s3_region}</label>
-                            <input type="text" value={props.s3Config.region || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, region: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
+                            <label className="text-xs font-medium text-slate-600 dark:text-white/60 block">{t.s3_region}</label>
+                            <input type="text" value={props.s3Config.region || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, region: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
                         </div>
                     </div>
                     <div className="flex-1 space-y-1">
-                        <label className="text-xs font-medium text-white/60 block">{t.s3_endpoint}</label>
-                        <input type="text" value={props.s3Config.endpoint || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, endpoint: e.target.value })} placeholder={getEndpointPlaceholder()} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
+                        <label className="text-xs font-medium text-slate-600 dark:text-white/60 block">{t.s3_endpoint}</label>
+                        <input type="text" value={props.s3Config.endpoint || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, endpoint: e.target.value })} placeholder={getEndpointPlaceholder()} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
                     </div>
                         <div className="flex gap-4">
                         <div className="flex-1 space-y-1">
-                            <label className="text-xs font-medium text-white/60 block">{t.s3_domain}</label>
-                            <input type="text" value={props.s3Config.publicDomain || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, publicDomain: e.target.value })} placeholder={t.s3_domain_placeholder} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
+                            <label className="text-xs font-medium text-slate-600 dark:text-white/60 block">{t.s3_domain}</label>
+                            <input type="text" value={props.s3Config.publicDomain || ''} onChange={(e) => props.setS3Config({ ...props.s3Config, publicDomain: e.target.value })} placeholder={t.s3_domain_placeholder} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all" />
                         </div>
                         <div className="flex-1 space-y-1">
-                            <label className="text-xs font-medium text-white/60 block">{t.s3_prefix}</label>
-                            <input type="text" value={props.s3Config.prefix ?? 'peinture/'} onChange={(e) => props.setS3Config({ ...props.s3Config, prefix: e.target.value })} placeholder={t.s3_prefix_placeholder} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono" />
+                            <label className="text-xs font-medium text-slate-600 dark:text-white/60 block">{t.s3_prefix}</label>
+                            <input type="text" value={props.s3Config.prefix ?? 'peinture/'} onChange={(e) => props.setS3Config({ ...props.s3Config, prefix: e.target.value })} placeholder={t.s3_prefix_placeholder} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-green-500/50 transition-all font-mono" />
                         </div>
                     </div>
                     <div className="flex flex-col gap-2">
@@ -90,23 +90,23 @@ export const StorageTab: React.FC<StorageTabProps> = (props) => {
             <div className="space-y-6">
                 <div className="space-y-4">
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.webdav_url}</label>
-                        <input type="text" value={props.webdavConfig.url} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, url: e.target.value })} placeholder={t.webdav_url_placeholder} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.webdav_url}</label>
+                        <input type="text" value={props.webdavConfig.url} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, url: e.target.value })} placeholder={t.webdav_url_placeholder} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.webdav_username}</label>
-                        <input type="text" value={props.webdavConfig.username} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, username: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.webdav_username}</label>
+                        <input type="text" value={props.webdavConfig.username} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, username: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.webdav_password}</label>
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.webdav_password}</label>
                         <div className="relative w-full">
-                            <input type={showWebdavPass ? "text" : "password"} value={props.webdavConfig.password} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, password: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono pr-8" />
-                            <button type="button" onClick={() => setShowWebdavPass(!showWebdavPass)} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/30 hover:text-white">{showWebdavPass ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
+                            <input type={showWebdavPass ? "text" : "password"} value={props.webdavConfig.password} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, password: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono pr-8" />
+                            <button type="button" onClick={() => setShowWebdavPass(!showWebdavPass)} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 hover:text-slate-900 dark:hover:text-white">{showWebdavPass ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
                         </div>
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <label className="text-sm font-medium text-white/80 w-1/3 flex-shrink-0">{t.webdav_directory}</label>
-                        <input type="text" value={props.webdavConfig.directory} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, directory: e.target.value })} className="w-full px-3 py-2 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
+                        <label className="text-sm font-medium text-slate-800 dark:text-white/80 w-1/3 flex-shrink-0">{t.webdav_directory}</label>
+                        <input type="text" value={props.webdavConfig.directory} onChange={(e) => props.setWebdavConfig({ ...props.webdavConfig, directory: e.target.value })} className="w-full px-3 py-2 bg-slate-900/[0.03] dark:bg-white/[0.03] border border-slate-900/10 dark:border-white/10 rounded-lg text-slate-900 dark:text-white text-sm focus:outline-0 focus:border-blue-500/50 transition-all font-mono" />
                     </div>
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-end">

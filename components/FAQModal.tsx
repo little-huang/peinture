@@ -134,15 +134,15 @@ export const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
              />
 
              {/* Modal: Delayed In, Immediate Out */}
-             <div className={`relative w-full max-w-2xl bg-[#0D0B14]/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl shadow-[0_0_50px_-12px_rgba(124,58,237,0.15)] ring-1 ring-white/[0.05] overflow-hidden flex flex-col h-[85vh] md:h-auto md:max-h-[85vh] transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? 'scale-100 opacity-100 translate-y-0 delay-100' : 'scale-95 opacity-0 translate-y-4'}`}>
-                <div className="flex items-center justify-between px-4 py-2 md:px-5 border-b border-white/[0.06] bg-white/[0.02] flex-shrink-0">
+             <div className={`relative w-full max-w-2xl bg-white/90 dark:bg-[#0D0B14]/95 backdrop-blur-xl border border-slate-900/[0.08] dark:border-white/[0.08] rounded-2xl shadow-[0_0_50px_-12px_rgba(124,58,237,0.15)] ring-1 ring-slate-900/[0.05] dark:ring-white/[0.05] overflow-hidden flex flex-col h-[85vh] md:h-auto md:max-h-[85vh] transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? 'scale-100 opacity-100 translate-y-0 delay-100' : 'scale-95 opacity-0 translate-y-4'}`}>
+                <div className="flex items-center justify-between px-4 py-2 md:px-5 border-b border-slate-900/[0.06] dark:border-white/[0.06] bg-slate-900/[0.02] dark:bg-white/[0.02] flex-shrink-0">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-purple-500/10 rounded-lg">
                             <HelpCircle className="w-5 h-5 text-purple-400" />
                         </div>
-                        <h2 className="text-lg font-bold text-white tracking-wide">FAQ</h2>
+                        <h2 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide">FAQ</h2>
                     </div>
-                    <button onClick={onClose} className="group p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/[0.08] transition-all duration-200">
+                    <button onClick={onClose} className="group p-2 rounded-lg text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/[0.08] dark:hover:bg-white/[0.08] transition-all duration-200">
                         <X className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-180" />
                     </button>
                 </div>
@@ -152,22 +152,22 @@ export const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
                         {faqItems.map((item, index) => (
                             <div 
                                 key={index} 
-                                className={`border rounded-xl transition-all duration-300 overflow-hidden ${openIndex === index ? 'bg-white/[0.03] border-purple-500/30 shadow-[0_0_20px_-5px_rgba(168,85,247,0.1)]' : 'bg-transparent border-white/[0.05] hover:bg-white/[0.02] hover:border-white/10'}`}
+                                className={`border rounded-xl transition-all duration-300 overflow-hidden ${openIndex === index ? 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-purple-500/30 shadow-[0_0_20px_-5px_rgba(168,85,247,0.1)]' : 'bg-transparent border-slate-900/[0.05] dark:border-white/[0.05] hover:bg-slate-900/[0.02] dark:hover:bg-white/[0.02] hover:border-slate-900/10 dark:hover:border-white/10'}`}
                             >
                                 <button
                                     onClick={() => toggleAccordion(index)}
                                     className="w-full flex items-center justify-between p-3 md:p-4 text-left select-none group"
                                 >
                                     <div className="flex items-center gap-4 flex-1 min-w-0 pr-2">
-                                        <div className={`flex-shrink-0 p-2.5 rounded-xl bg-black/20 border border-white/[0.05] transition-all duration-300 ${openIndex === index ? 'opacity-100 scale-100 bg-white/5' : 'opacity-60 scale-95 group-hover:opacity-80'}`}>
+                                        <div className={`flex-shrink-0 p-2.5 rounded-xl bg-slate-900/5 dark:bg-black/20 border border-slate-900/[0.05] dark:border-white/[0.05] transition-all duration-300 ${openIndex === index ? 'opacity-100 scale-100 bg-slate-900/5 dark:bg-white/5' : 'opacity-60 scale-95 group-hover:opacity-80'}`}>
                                             {item.icon}
                                         </div>
-                                        <span className={`font-medium transition-colors duration-300 break-words leading-tight ${openIndex === index ? 'text-white' : 'text-white/80 group-hover:text-white/90'}`}>
+                                        <span className={`font-medium transition-colors duration-300 break-words leading-tight ${openIndex === index ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-white/80 group-hover:text-slate-900 dark:group-hover:text-white/90'}`}>
                                             {item.question}
                                         </span>
                                     </div>
                                     <div className={`flex-shrink-0 transition-transform duration-500 ease-out ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
-                                        <ChevronDown className={`w-5 h-5 ${openIndex === index ? 'text-purple-400' : 'text-white/30 group-hover:text-white/50'}`} />
+                                        <ChevronDown className={`w-5 h-5 ${openIndex === index ? 'text-purple-400' : 'text-slate-400 dark:text-white/30 group-hover:text-slate-500 dark:group-hover:text-white/50'}`} />
                                     </div>
                                 </button>
                                 
@@ -178,7 +178,7 @@ export const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
                                 >
                                     <div className="overflow-hidden">
                                         <div className="px-4 pb-4 md:pl-[4.75rem] pr-6">
-                                            <div className={`text-sm text-white/60 leading-relaxed border-t border-white/[0.05] pt-3 transition-opacity duration-500 delay-100 ${openIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                                            <div className={`text-sm text-slate-600 dark:text-white/60 leading-relaxed border-t border-slate-900/[0.05] dark:border-white/[0.05] pt-3 transition-opacity duration-500 delay-100 ${openIndex === index ? 'opacity-100' : 'opacity-0'}`}>
                                                 {item.answer}
                                             </div>
                                         </div>
@@ -188,12 +188,12 @@ export const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
                         ))}
                     </div>
 
-                    <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-purple-900/10 to-blue-900/10 border border-white/[0.05] text-center group hover:border-white/10 transition-colors">
+                    <div className="mt-8 p-4 rounded-xl bg-gradient-to-r from-purple-900/10 to-blue-900/10 border border-slate-900/[0.05] dark:border-white/[0.05] text-center group hover:border-slate-900/10 dark:hover:border-white/10 transition-colors">
                         <a 
                             href="https://github.com/Amery2010/peinture" 
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs text-white/40 group-hover:text-white/80 transition-colors flex items-center justify-center gap-2"
+                            className="text-xs text-slate-500 dark:text-white/40 group-hover:text-slate-800 dark:group-hover:text-white/80 transition-colors flex items-center justify-center gap-2"
                         >
                             <Github className="w-4 h-4" />
                             {t.footer_license}
@@ -201,10 +201,10 @@ export const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-end px-4 py-2 md:px-5 border-t border-white/[0.06] bg-white/[0.02] flex-shrink-0">
+                <div className="flex items-center justify-end px-4 py-2 md:px-5 border-t border-slate-900/[0.06] dark:border-white/[0.06] bg-slate-900/[0.02] dark:bg-white/[0.02] flex-shrink-0">
                     <button
                         onClick={onClose}
-                        className="px-6 py-2 text-sm font-medium text-white/90 bg-white/10 hover:bg-white/15 rounded-lg transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-black/20"
+                        className="px-6 py-2 text-sm font-medium text-slate-900 dark:text-white/90 bg-slate-900/10 dark:bg-white/10 hover:bg-slate-900/15 dark:hover:bg-white/15 rounded-lg transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-black/20"
                     >
                         {t.close}
                     </button>

@@ -68,10 +68,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
              />
 
              {/* Modal: Delayed In, Immediate Out */}
-             <div className={`relative w-full max-w-md bg-[#0D0B14]/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl shadow-[0_0_50px_-12px_rgba(124,58,237,0.15)] ring-1 ring-white/[0.05] overflow-hidden flex flex-col max-h-[90vh] transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? 'scale-100 opacity-100 translate-y-0 delay-100' : 'scale-95 opacity-0 translate-y-4'}`}>
-                <div className="flex items-center justify-between px-5 py-2 border-b border-white/[0.06] bg-white/[0.02] flex-shrink-0">
-                    <h2 className="text-lg font-bold text-white tracking-wide">{t.settings}</h2>
-                    <button onClick={onClose} className="group p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/[0.08] transition-all duration-200">
+             <div className={`relative w-full max-w-md bg-white/90 dark:bg-[#0D0B14]/95 backdrop-blur-xl border border-slate-900/[0.08] dark:border-white/[0.08] rounded-2xl shadow-[0_0_50px_-12px_rgba(124,58,237,0.15)] ring-1 ring-slate-900/[0.05] dark:ring-white/[0.05] overflow-hidden flex flex-col max-h-[90vh] transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) ${isVisible ? 'scale-100 opacity-100 translate-y-0 delay-100' : 'scale-95 opacity-0 translate-y-4'}`}>
+                <div className="flex items-center justify-between px-5 py-2 border-b border-slate-900/[0.06] dark:border-white/[0.06] bg-slate-900/[0.02] dark:bg-white/[0.02] flex-shrink-0">
+                    <h2 className="text-lg font-bold text-slate-900 dark:text-white tracking-wide">{t.settings}</h2>
+                    <button onClick={onClose} className="group p-2 rounded-lg text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/[0.08] dark:hover:bg-white/[0.08] transition-all duration-200">
                         <X className="w-5 h-5 transition-transform duration-500 ease-out group-hover:rotate-180" />
                     </button>
                 </div>
@@ -176,9 +176,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                     </div>
                 </div>
 
-                <div className="flex items-center justify-end gap-3 px-5 py-2 border-t border-white/[0.06] bg-white/[0.02] flex-shrink-0">
-                    <button onClick={onClose} className="px-5 py-2.5 text-sm font-medium text-white/60 hover:text-white hover:bg-white/[0.06] rounded-lg transition-all duration-200">{t.cancel}</button>
-                    <button onClick={form.handleSave} className="flex items-center gap-2 px-6 py-2.5 text-sm font-bold text-white bg-purple-600 hover:bg-purple-500 active:bg-purple-700 active:scale-95 rounded-lg transition-all shadow-[0_4px_20px_-4px_rgba(147,51,234,0.5)] hover:shadow-[0_4px_25px_-4px_rgba(147,51,234,0.6)]"><Save className="w-4 h-4" />{t.save}</button>
+                <div className="flex items-center justify-end gap-3 px-5 py-2 border-t border-slate-900/[0.06] dark:border-white/[0.06] bg-slate-900/[0.02] dark:bg-white/[0.02] flex-shrink-0">
+                    <button onClick={onClose} className="px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-white/60 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] rounded-lg transition-all duration-200">{t.cancel}</button>
+                    <button onClick={form.handleSave} className="flex items-center gap-2 px-6 py-2.5 text-sm font-bold text-on-accent bg-purple-600 hover:bg-purple-500 active:bg-purple-700 active:scale-95 rounded-lg transition-all shadow-[0_4px_20px_-4px_rgba(147,51,234,0.5)] hover:shadow-[0_4px_25px_-4px_rgba(147,51,234,0.6)]"><Save className="w-4 h-4" />{t.save}</button>
                 </div>
             </div>
         </div>

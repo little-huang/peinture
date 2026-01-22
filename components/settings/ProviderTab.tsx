@@ -45,19 +45,19 @@ export const ProviderTab: React.FC<ProviderTabProps> = (props) => {
     };
 
     const renderProviderPanel = (id: string, title: string, dotColorClass: string, children: React.ReactNode) => (
-        <div key={id} className="border-b border-white/5 last:border-0">
+        <div key={id} className="border-b border-slate-900/5 dark:border-white/5 last:border-0">
             <div className="flex items-center w-full group">
                 <button
                     onClick={() => setOpenProvider(openProvider === id ? '' : id)}
                     className="flex-1 flex items-center justify-between py-4 text-left"
                 >
                     <div className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full ${dotColorClass} ring-4 ring-white/[0.02] group-hover:ring-white/[0.05] transition-all`} />
-                        <span className={`text-sm font-medium transition-colors ${openProvider === id ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+                        <div className={`w-2 h-2 rounded-full ${dotColorClass} ring-4 ring-slate-900/[0.02] dark:ring-white/[0.02] group-hover:ring-slate-900/[0.05] dark:group-hover:ring-white/[0.05] transition-all`} />
+                        <span className={`text-sm font-medium transition-colors ${openProvider === id ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-white/60 group-hover:text-slate-900 dark:group-hover:text-white'}`}>
                             {title}
                         </span>
                     </div>
-                    <div className={`text-white/40 transition-transform duration-300 mr-2 ${openProvider === id ? 'rotate-180 text-white/80' : 'rotate-0 group-hover:text-white/60'}`}>
+                    <div className={`text-slate-500 dark:text-white/40 transition-transform duration-300 mr-2 ${openProvider === id ? 'rotate-180 text-slate-800 dark:text-white/80' : 'rotate-0 group-hover:text-slate-600 dark:group-hover:text-white/60'}`}>
                         <ChevronDown className="w-4 h-4" />
                     </div>
                 </button>
@@ -102,12 +102,12 @@ export const ProviderTab: React.FC<ProviderTabProps> = (props) => {
                         onChange(newValue);
                     }}
                     placeholder={placeholder}
-                    className="w-full pl-4 pr-10 py-2.5 bg-[#1A1625] border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 transition-all font-mono text-sm"
+                    className="w-full pl-4 pr-10 py-2.5 bg-white dark:bg-[#1A1625] border border-slate-900/10 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 transition-all font-mono text-sm"
                 />
                 <button
                     type="button"
                     onClick={() => toggleTokenShow(id)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 hover:text-slate-900 dark:hover:text-white transition-colors p-1.5 rounded-lg hover:bg-slate-900/5 dark:hover:bg-white/5"
                 >
                     {showTokens[id] ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -115,9 +115,9 @@ export const ProviderTab: React.FC<ProviderTabProps> = (props) => {
             
             {statsObj.total > 1 && (
                 <div className="grid grid-cols-3 gap-3">
-                    <div className="bg-white/5 border border-white/5 rounded-xl p-2.5 text-center">
-                        <div className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{t.tokenTotal}</div>
-                        <div className="text-sm font-bold text-white font-mono">{statsObj.total}</div>
+                    <div className="bg-slate-900/5 dark:bg-white/5 border border-slate-900/5 dark:border-white/5 rounded-xl p-2.5 text-center">
+                        <div className="text-[10px] text-slate-500 dark:text-white/40 uppercase tracking-wider mb-0.5">{t.tokenTotal}</div>
+                        <div className="text-sm font-bold text-slate-900 dark:text-white font-mono">{statsObj.total}</div>
                     </div>
                     <div className="bg-green-500/10 border border-green-500/10 rounded-xl p-2.5 text-center">
                         <div className="text-[10px] text-green-400/60 uppercase tracking-wider mb-0.5">{t.tokenActive}</div>
@@ -134,7 +134,7 @@ export const ProviderTab: React.FC<ProviderTabProps> = (props) => {
                 </div>
             )}
 
-            <p className="text-xs text-white/40 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-white/40 leading-relaxed">
                 {helpStart} <a href={linkUrl} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 hover:underline transition-colors">{linkText}</a> {helpEnd}
             </p>
         </div>
@@ -163,56 +163,56 @@ export const ProviderTab: React.FC<ProviderTabProps> = (props) => {
                     {props.customProviders.map(cp => renderProviderPanel(cp.id, cp.name, 'bg-purple-500', (
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.provider_name}</label>
-                                <input type="text" value={cp.name} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { name: e.target.value })} className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50" />
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.provider_name}</label>
+                                <input type="text" value={cp.name} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { name: e.target.value })} className="w-full px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50" />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.api_url}</label>
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.api_url}</label>
                                 <div className="flex items-center gap-2">
-                                    <input type="text" value={cp.apiUrl} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { apiUrl: e.target.value })} className="flex-1 px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50 font-mono" />
-                                    <button onClick={() => props.handleRefreshCustomModels(cp.id)} disabled={props.refreshingProviders[cp.id]} className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all flex items-center gap-1.5 ${props.refreshingProviders[cp.id] ? 'bg-white/5 text-white/40 border-white/5 cursor-not-allowed' : 'bg-white/10 text-white/80 border-white/10 hover:bg-white/20'}`} title={t.get_models || "Update Models"}>{props.refreshingProviders[cp.id] ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RotateCcw className="w-3.5 h-3.5" />}</button>
+                                    <input type="text" value={cp.apiUrl} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { apiUrl: e.target.value })} className="flex-1 px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50 font-mono" />
+                                    <button onClick={() => props.handleRefreshCustomModels(cp.id)} disabled={props.refreshingProviders[cp.id]} className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all flex items-center gap-1.5 ${props.refreshingProviders[cp.id] ? 'bg-slate-900/5 dark:bg-white/5 text-slate-500 dark:text-white/40 border-slate-900/5 dark:border-white/5 cursor-not-allowed' : 'bg-slate-900/10 dark:bg-white/10 text-slate-800 dark:text-white/80 border-slate-900/10 dark:border-white/10 hover:bg-slate-900/20 dark:hover:bg-white/20'}`} title={t.get_models || "Update Models"}>{props.refreshingProviders[cp.id] ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RotateCcw className="w-3.5 h-3.5" />}</button>
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.api_token}</label>
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.api_token}</label>
                                 <div className="relative w-full">
-                                    <input type={showTokens[cp.id] ? "text" : "password"} value={cp.token || ''} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { token: e.target.value })} className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50 font-mono pr-8" />
-                                    <button type="button" onClick={() => toggleTokenShow(cp.id)} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/30 hover:text-white p-1">{showTokens[cp.id] ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
+                                    <input type={showTokens[cp.id] ? "text" : "password"} value={cp.token || ''} onChange={(e) => props.handleUpdateCustomProvider(cp.id, { token: e.target.value })} className="w-full px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50 font-mono pr-8" />
+                                    <button type="button" onClick={() => toggleTokenShow(cp.id)} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 hover:text-slate-900 dark:hover:text-white p-1">{showTokens[cp.id] ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
                                 </div>
                             </div>
                             <div className="flex items-center justify-between">
-                                    <div className={`text-xs transition-colors duration-300 flex items-center gap-1.5 ${props.refreshSuccessProviders[cp.id] ? 'text-green-400 font-medium' : 'text-white/40'}`}>
+                                    <div className={`text-xs transition-colors duration-300 flex items-center gap-1.5 ${props.refreshSuccessProviders[cp.id] ? 'text-green-400 font-medium' : 'text-slate-500 dark:text-white/40'}`}>
                                     {props.refreshSuccessProviders[cp.id] && <Check className="w-3 h-3" />}
                                     {t.models_count.replace('{count}', ((cp.models.generate?.length || 0) + (cp.models.edit?.length || 0) + (cp.models.video?.length || 0) + (cp.models.text?.length || 0) + (cp.models.upscaler?.length || 0)).toString())}
                                     </div>
-                                    <button onClick={() => props.handleDeleteCustomProvider(cp.id)} className="p-2 text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors" title={t.delete || "Delete"}><Trash2 className="w-4 h-4" /></button>
+                                    <button onClick={() => props.handleDeleteCustomProvider(cp.id)} className="p-2 text-slate-500 dark:text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors" title={t.delete || "Delete"}><Trash2 className="w-4 h-4" /></button>
                             </div>
                         </div>
                     )))}
-                    {showAddCustomProvider && renderProviderPanel('add_custom', t.add_provider, 'bg-white/20', (
+                    {showAddCustomProvider && renderProviderPanel('add_custom', t.add_provider, 'bg-slate-900/20 dark:bg-white/20', (
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.provider_name} <span className="text-white/30">({t.seedOptional})</span></label>
-                                <input type="text" value={props.newProviderName} onChange={e => props.setNewProviderName(e.target.value)} className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50" />
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.provider_name} <span className="text-slate-400 dark:text-white/30">({t.seedOptional})</span></label>
+                                <input type="text" value={props.newProviderName} onChange={e => props.setNewProviderName(e.target.value)} className="w-full px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50" />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.api_url}</label>
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.api_url}</label>
                                 <div className="flex items-center gap-2">
-                                    <input type="text" value={props.newProviderUrl} onChange={e => props.setNewProviderUrl(e.target.value)} className="flex-1 px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50 font-mono" placeholder="https://example.com/api" />
-                                    <button onClick={props.handleFetchCustomModels} disabled={!props.newProviderUrl || props.fetchStatus === 'loading'} className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all flex items-center gap-1.5 ${props.fetchStatus === 'success' ? 'bg-green-500/20 text-green-400 border-green-500/30' : props.fetchStatus === 'failed' ? 'bg-red-500/20 text-red-400 border-red-500/30' : 'bg-white/10 text-white/80 border-white/10 hover:bg-white/20'}`}>{props.fetchStatus === 'loading' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Globe className="w-3.5 h-3.5" />}{props.fetchStatus === 'loading' ? t.fetch_status_loading : (props.fetchStatus === 'success' ? t.fetch_status_success : (props.fetchStatus === 'failed' ? t.fetch_status_failed : t.get_models))}</button>
+                                    <input type="text" value={props.newProviderUrl} onChange={e => props.setNewProviderUrl(e.target.value)} className="flex-1 px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50 font-mono" placeholder="https://example.com/api" />
+                                    <button onClick={props.handleFetchCustomModels} disabled={!props.newProviderUrl || props.fetchStatus === 'loading'} className={`px-3 py-2 rounded-lg text-xs font-medium border transition-all flex items-center gap-1.5 ${props.fetchStatus === 'success' ? 'bg-green-500/20 text-green-400 border-green-500/30' : props.fetchStatus === 'failed' ? 'bg-red-500/20 text-red-400 border-red-500/30' : 'bg-slate-900/10 dark:bg-white/10 text-slate-800 dark:text-white/80 border-slate-900/10 dark:border-white/10 hover:bg-slate-900/20 dark:hover:bg-white/20'}`}>{props.fetchStatus === 'loading' ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Globe className="w-3.5 h-3.5" />}{props.fetchStatus === 'loading' ? t.fetch_status_loading : (props.fetchStatus === 'success' ? t.fetch_status_success : (props.fetchStatus === 'failed' ? t.fetch_status_failed : t.get_models))}</button>
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-xs font-medium text-white/60">{t.api_token}</label>
+                                <label className="text-xs font-medium text-slate-600 dark:text-white/60">{t.api_token}</label>
                                 <div className="relative w-full">
-                                    <input type={showTokens['new'] ? "text" : "password"} value={props.newProviderToken} onChange={e => props.setNewProviderToken(e.target.value)} className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500/50 font-mono pr-8" />
-                                    <button type="button" onClick={() => toggleTokenShow('new')} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/30 hover:text-white p-1">{showTokens['new'] ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
+                                    <input type={showTokens['new'] ? "text" : "password"} value={props.newProviderToken} onChange={e => props.setNewProviderToken(e.target.value)} className="w-full px-3 py-2 bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 rounded-lg text-sm text-slate-900 dark:text-white focus:outline-none focus:border-purple-500/50 font-mono pr-8" />
+                                    <button type="button" onClick={() => toggleTokenShow('new')} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 dark:text-white/30 hover:text-slate-900 dark:hover:text-white p-1">{showTokens['new'] ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}</button>
                                 </div>
                             </div>
-                            {props.fetchedModels && (<div className="p-3 bg-white/5 rounded-lg text-xs text-green-400 border border-green-500/20 flex items-center gap-2"><Check className="w-3 h-3" />{t.models_count.replace('{count}', ((props.fetchedModels.generate?.length || 0) + (props.fetchedModels.edit?.length || 0) + (props.fetchedModels.video?.length || 0) + (props.fetchedModels.text?.length || 0) + (props.fetchedModels.upscaler?.length || 0)).toString())}</div>)}
+                            {props.fetchedModels && (<div className="p-3 bg-slate-900/5 dark:bg-white/5 rounded-lg text-xs text-green-400 border border-green-500/20 flex items-center gap-2"><Check className="w-3 h-3" />{t.models_count.replace('{count}', ((props.fetchedModels.generate?.length || 0) + (props.fetchedModels.edit?.length || 0) + (props.fetchedModels.video?.length || 0) + (props.fetchedModels.text?.length || 0) + (props.fetchedModels.upscaler?.length || 0)).toString())}</div>)}
                             <div className="flex justify-between">
-                                <button onClick={() => { props.handleClearAddForm(); setOpenProvider(''); }} className="p-2 text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors" title={t.cancel || "Clear"}><Trash2 className="w-4 h-4" /></button>
-                                <button onClick={props.handleAddCustomProvider} disabled={!props.newProviderUrl || !props.fetchedModels} className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">{t.confirm}</button>
+                                <button onClick={() => { props.handleClearAddForm(); setOpenProvider(''); }} className="p-2 text-slate-500 dark:text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors" title={t.cancel || "Clear"}><Trash2 className="w-4 h-4" /></button>
+                                <button onClick={props.handleAddCustomProvider} disabled={!props.newProviderUrl || !props.fetchedModels} className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-on-accent text-sm font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed">{t.confirm}</button>
                             </div>
                         </div>
                     ))}

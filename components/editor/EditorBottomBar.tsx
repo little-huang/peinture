@@ -41,22 +41,22 @@ export const EditorBottomBar: React.FC<EditorBottomBarProps> = ({
 
     return (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-30 select-none">
-            <div className="relative flex items-center h-14 pl-2 pr-1.5 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl shadow-black/40 ring-1 ring-white/5">
+            <div className="relative flex items-center h-14 pl-2 pr-1.5 bg-white/80 dark:bg-black/60 backdrop-blur-xl border border-slate-900/10 dark:border-white/10 rounded-full shadow-2xl shadow-black/40 ring-1 ring-slate-900/5 dark:ring-white/5">
                 
                 <div className="flex items-center mr-2">
                         {attachedImages.map((img, idx) => (
                         <Tooltip key={idx} content={t.ref_image_n.replace('{n}', (idx + 1).toString())}>
                             <div 
-                                className={`relative w-8 h-8 rounded-full overflow-hidden border border-purple-500/50 group flex-shrink-0 bg-[#0D0B14] ${idx > 0 ? '-ml-3' : ''}`} 
+                                className={`relative w-8 h-8 rounded-full overflow-hidden border border-purple-500/50 group flex-shrink-0 bg-slate-50 dark:bg-[#0D0B14] ${idx > 0 ? '-ml-3' : ''}`} 
                                 style={{ zIndex: 10 + idx }}
                             >
                                 <div className="w-full h-full relative">
                                     <img src={img} alt={`Ref ${idx}`} className="w-full h-full object-cover" />
                                     <button 
                                         onClick={() => removeAttachedImage(idx)}
-                                        className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                                        className="absolute inset-0 bg-white/80 dark:bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                                     >
-                                        <X className="w-3 h-3 text-white" />
+                                        <X className="w-3 h-3 text-slate-900 dark:text-white" />
                                     </button>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export const EditorBottomBar: React.FC<EditorBottomBarProps> = ({
                             <Tooltip content={t.upload_ref_image}>
                                 <label 
                                     htmlFor="cmd-image-upload"
-                                    className="flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition-all hover:bg-white/10 text-white/50 border border-white/5 hover:border-white/20 hover:text-white"
+                                    className="flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition-all hover:bg-slate-900/10 dark:hover:bg-white/10 text-slate-500 dark:text-white/50 border border-slate-900/5 dark:border-white/5 hover:border-slate-900/20 dark:hover:border-white/20 hover:text-slate-900 dark:hover:text-white"
                                 >
                                     <ImagePlus className="w-4 h-4" />
                                 </label>
@@ -106,7 +106,7 @@ export const EditorBottomBar: React.FC<EditorBottomBarProps> = ({
                     }}
                     placeholder={t.editor_placeholder}
                     disabled={isGenerating}
-                    className="flex-1 bg-transparent border-0 text-white placeholder:text-white/30 focus:ring-0 h-full text-sm font-medium px-0 min-w-0 disabled:opacity-50"
+                    className="flex-1 bg-transparent border-0 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-white/30 focus:ring-0 h-full text-sm font-medium px-0 min-w-0 disabled:opacity-50"
                 />
 
                 <button 
@@ -117,8 +117,8 @@ export const EditorBottomBar: React.FC<EditorBottomBarProps> = ({
                         font-bold shadow-lg active:scale-95 ml-2
                         disabled:grayscale disabled:opacity-50
                         ${isGenerating 
-                            ? 'w-11 h-11 rounded-full p-0 flex-shrink-0 bg-white/60 hover:bg-white/80 text-white shadow-white/20 cursor-pointer' 
-                            : 'px-4 py-2 rounded-full flex-shrink-0 generate-button-gradient text-white shadow-purple-900/20'
+                            ? 'w-11 h-11 rounded-full p-0 flex-shrink-0 bg-white/60 hover:bg-white/80 text-slate-900 dark:text-white shadow-white/20 cursor-pointer' 
+                            : 'px-4 py-2 rounded-full flex-shrink-0 generate-button-gradient text-slate-900 dark:text-white text-on-accent shadow-purple-900/20'
                         }
                     `}
                 >

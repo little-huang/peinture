@@ -83,8 +83,8 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
       }}
       className={`
         w-full flex items-center justify-between px-4 py-2.5 text-sm text-left
-        transition-colors hover:bg-white/10
-        ${option.value === value ? 'text-purple-400 bg-white/5' : 'text-white/80'}
+        transition-colors hover:bg-slate-900/10 dark:hover:bg-white/10
+        ${option.value === value ? 'text-purple-400 bg-slate-900/5 dark:bg-white/5' : 'text-slate-800 dark:text-white/80'}
       `}
     >
       <span className="truncate mr-2">{option.label}</span>
@@ -95,7 +95,7 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
   return (
     <div className={`group relative ${horizontal ? 'flex items-center gap-4' : ''}`} ref={containerRef}>
       <div className={horizontal ? 'w-1/3 flex-shrink-0' : `flex items-center justify-between ${dense ? 'pb-1.5' : 'pb-3'}`}>
-        <p className={`text-white font-medium leading-normal group-focus-within:text-purple-400 transition-colors ${dense ? 'text-sm' : 'text-lg'} ${horizontal ? 'truncate' : ''}`}>
+        <p className={`text-slate-900 dark:text-white font-medium leading-normal group-focus-within:text-purple-400 transition-colors ${dense ? 'text-sm' : 'text-lg'} ${horizontal ? 'truncate' : ''}`}>
           {label}
         </p>
         {!horizontal && headerContent}
@@ -107,7 +107,7 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
             onClick={() => setIsOpen(!isOpen)}
             className={`
               relative w-full flex items-center justify-between rounded-lg 
-              text-white/90 border border-white/10 bg-white/5 
+              text-slate-900 dark:text-white/90 border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 
               focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500
               transition-all px-4 text-sm font-medium
               ${isOpen ? 'ring-2 ring-purple-500/50 border-purple-500' : ''}
@@ -115,10 +115,10 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
             `}
           >
             <div className="flex items-center gap-3 overflow-hidden">
-                {icon && <span className="text-white/40 flex-shrink-0">{icon}</span>}
+                {icon && <span className="text-slate-500 dark:text-white/40 flex-shrink-0">{icon}</span>}
                 <span className="truncate">{selectedOption?.label || value}</span>
             </div>
-            <ChevronsUpDown className="text-white/40 w-5 h-5 flex-shrink-0 ml-2" />
+            <ChevronsUpDown className="text-slate-500 dark:text-white/40 w-5 h-5 flex-shrink-0 ml-2" />
           </button>
 
           <div 
@@ -133,7 +133,7 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
             `}
           >
             <div className="overflow-hidden">
-              <div className="bg-[#1A1625] border border-white/10 rounded-lg shadow-xl overflow-hidden">
+              <div className="bg-white dark:bg-[#1A1625] border border-slate-900/10 dark:border-white/10 rounded-lg shadow-xl overflow-hidden">
                 <div 
                   className="overflow-y-auto py-2 custom-scrollbar"
                   style={{ maxHeight: `${maxHeight}px` }}
@@ -145,9 +145,9 @@ export const Select: React.FC<SelectProps> = ({ label, value, onChange, options,
 
                       return (
                         <div key={item.label || index} className="mb-1 last:mb-0">
-                          <div className="px-4 py-1.5 text-[10px] font-bold text-white/40 uppercase tracking-wider flex items-center gap-2">
+                          <div className="px-4 py-1.5 text-[10px] font-bold text-slate-500 dark:text-white/40 uppercase tracking-wider flex items-center gap-2">
                              {item.label}
-                             <div className="h-px bg-white/10 flex-1"></div>
+                             <div className="h-px bg-slate-900/10 dark:bg-white/10 flex-1"></div>
                           </div>
                           {item.options.map(opt => renderOption(opt))}
                         </div>

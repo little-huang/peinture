@@ -28,8 +28,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
       <div 
         className={`
           absolute z-50 px-3 py-1.5 
-          text-xs font-medium text-white bg-[#1A1625] 
-          border border-white/10 rounded-lg shadow-xl shadow-black/50
+          text-xs font-medium text-slate-900 dark:text-white bg-white dark:bg-[#1A1625] 
+          border border-slate-900/10 dark:border-white/10 rounded-lg shadow-xl shadow-black/50
           whitespace-nowrap pointer-events-none 
           opacity-0 group-hover/tooltip:opacity-100
           transition-all duration-200 ease-out origin-center

@@ -707,7 +707,7 @@ export const CreationView: React.FC = () => {
             {/* Left Column: Controls */}
             <aside className="w-full md:max-w-sm flex-shrink-0 flex flex-col gap-4 md:gap-6">
                 <div className="flex-grow space-y-4 md:space-y-6">
-                    <div className="relative z-10 bg-black/20 p-4 md:p-6 rounded-xl backdrop-blur-xl border border-white/10 flex flex-col gap-4 md:gap-6 shadow-2xl shadow-black/20">
+                    <div className="relative z-10 bg-white/70 dark:bg-black/20 p-4 md:p-6 rounded-xl backdrop-blur-xl border border-slate-900/10 dark:border-white/10 flex flex-col gap-4 md:gap-6 shadow-2xl shadow-black/20">
                         <PromptInput onOptimize={handleOptimizePrompt} />
                         <ControlPanel />
                     </div>
@@ -716,7 +716,7 @@ export const CreationView: React.FC = () => {
                         <button 
                             onClick={handleGenerate}
                             disabled={isWorking || !prompt.trim() || isTranslating}
-                            className="group relative flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 text-white text-lg font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-purple-900/40 generate-button-gradient hover:shadow-purple-700/50 disabled:opacity-70 disabled:cursor-not-allowed disabled:grayscale"
+                            className="group relative flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 text-slate-900 dark:text-white text-on-accent text-lg font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-purple-900/40 generate-button-gradient hover:shadow-purple-700/50 disabled:opacity-70 disabled:cursor-not-allowed disabled:grayscale"
                         >
                             {isLoading || isTranslating ? (
                                 <div className="flex items-center gap-2">
@@ -735,7 +735,7 @@ export const CreationView: React.FC = () => {
                             <Tooltip content={t.reset}>
                                 <button 
                                     onClick={handleReset}
-                                    className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-lg active:scale-95"
+                                    className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-700 dark:text-white/70 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 hover:border-slate-900/20 dark:hover:border-white/20 transition-all shadow-lg active:scale-95"
                                 >
                                     <RotateCcw className="w-5 h-5" />
                                 </button>

@@ -328,7 +328,7 @@ export const translations = {
     unmark_nsfw: "Unmark NSFW",
   },
   zh: {
-    appTitle: "派奇智图",
+    appTitle: "",
     nav_creation: "创作",
     nav_editor: "编辑",
     nav_gallery: "画廊",
@@ -348,7 +348,7 @@ export const translations = {
     generate: "生成图片",
     dreaming: "生成中...",
     galleryEmptyTitle: "作品将显示在这里",
-    galleryEmptyDesc: "描述您的构想，用 AI 将其变为现实。",
+    galleryEmptyDesc: "描述你的构想，用 AI 将其变为现实。",
     generationFailed: "生成失败",
     imageDetails: "图片详情",
     dimensions: "尺寸",

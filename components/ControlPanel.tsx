@@ -211,11 +211,11 @@ export const ControlPanel: React.FC = () => {
             />
 
             {/* Advanced Settings */}
-            <div className="border-t border-white/5 pt-4">
+            <div className="border-t border-slate-900/5 dark:border-white/5 pt-4">
                 <button
                     type="button"
                     onClick={() => setIsAdvancedOpen(!isAdvancedOpen)}
-                    className="flex items-center justify-between w-full text-left text-white/60 hover:text-purple-400 transition-colors group"
+                    className="flex items-center justify-between w-full text-left text-slate-600 dark:text-white/60 hover:text-purple-400 transition-colors group"
                 >
                     <span className="text-sm font-medium flex items-center gap-2">
                         <Settings className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
@@ -231,8 +231,8 @@ export const ControlPanel: React.FC = () => {
                             {activeConfig.steps && (
                                 <div className="group">
                                     <div className="flex items-center justify-between pb-2">
-                                        <p className="text-white/80 text-sm font-medium">{t.steps}</p>
-                                        <span className="text-white/50 text-xs bg-white/5 px-2 py-0.5 rounded font-mono">{steps}</span>
+                                        <p className="text-slate-800 dark:text-white/80 text-sm font-medium">{t.steps}</p>
+                                        <span className="text-slate-500 dark:text-white/50 text-xs bg-slate-900/5 dark:bg-white/5 px-2 py-0.5 rounded font-mono">{steps}</span>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <input
@@ -251,8 +251,8 @@ export const ControlPanel: React.FC = () => {
                             {activeConfig.guidance && (
                                 <div className="group">
                                     <div className="flex items-center justify-between pb-2">
-                                        <p className="text-white/80 text-sm font-medium">{t.guidanceScale}</p>
-                                        <span className="text-white/50 text-xs bg-white/5 px-2 py-0.5 rounded font-mono">{guidanceScale.toFixed(1)}</span>
+                                        <p className="text-slate-800 dark:text-white/80 text-sm font-medium">{t.guidanceScale}</p>
+                                        <span className="text-slate-500 dark:text-white/50 text-xs bg-slate-900/5 dark:bg-white/5 px-2 py-0.5 rounded font-mono">{guidanceScale.toFixed(1)}</span>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <input
@@ -271,14 +271,14 @@ export const ControlPanel: React.FC = () => {
                             {/* Seed */}
                             <div className="group">
                                 <div className="flex items-center justify-between pb-2">
-                                    <p className="text-white/80 text-sm font-medium">{t.seed}</p>
-                                    <span className="text-white/40 text-xs">{t.seedOptional}</span>
+                                    <p className="text-slate-800 dark:text-white/80 text-sm font-medium">{t.seed}</p>
+                                    <span className="text-slate-500 dark:text-white/40 text-xs">{t.seedOptional}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <div className="flex flex-1 items-center rounded-lg border border-white/10 bg-white/5 focus-within:ring-2 focus-within:ring-purple-500/50 focus-within:border-purple-500 transition-all h-10 overflow-hidden">
+                                    <div className="flex flex-1 items-center rounded-lg border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 focus-within:ring-2 focus-within:ring-purple-500/50 focus-within:border-purple-500 transition-all h-10 overflow-hidden">
                                         <button
                                             onClick={() => handleAdjustSeed(-1)}
-                                            className="h-full px-2 text-white/40 hover:text-white hover:bg-white/5 transition-colors border-r border-white/5"
+                                            className="h-full px-2 text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/5 dark:hover:bg-white/5 transition-colors border-r border-slate-900/5 dark:border-white/5"
                                         >
                                             <Minus className="w-3.5 h-3.5" />
                                         </button>
@@ -286,12 +286,12 @@ export const ControlPanel: React.FC = () => {
                                             type="number"
                                             value={seed}
                                             onChange={(e) => setSeed(e.target.value)}
-                                            className="form-input flex-1 h-full bg-transparent border-none text-white/90 focus:ring-0 placeholder:text-white/30 px-2 text-xs font-mono text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                            className="form-input flex-1 h-full bg-transparent border-none text-slate-900 dark:text-white/90 focus:ring-0 placeholder:text-slate-400 dark:placeholder:text-white/30 px-2 text-xs font-mono text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                             placeholder={t.seedPlaceholder}
                                         />
                                         <button
                                             onClick={() => handleAdjustSeed(1)}
-                                            className="h-full px-2 text-white/40 hover:text-white hover:bg-white/5 transition-colors border-l border-white/5"
+                                            className="h-full px-2 text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/5 dark:hover:bg-white/5 transition-colors border-l border-slate-900/5 dark:border-white/5"
                                         >
                                             <Plus className="w-3.5 h-3.5" />
                                         </button>
@@ -300,7 +300,7 @@ export const ControlPanel: React.FC = () => {
                                     <Tooltip content={t.seedPlaceholder}>
                                         <button
                                             onClick={handleRandomizeSeed}
-                                            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-white/10 text-white/60 hover:bg-white/20 hover:text-white transition-colors active:scale-95"
+                                            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-slate-900/10 dark:bg-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/20 dark:hover:bg-white/20 hover:text-slate-900 dark:hover:text-white transition-colors active:scale-95"
                                         >
                                             <Dices className="w-4 h-4" />
                                         </button>

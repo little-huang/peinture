@@ -358,8 +358,8 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
              {/* Header */}
              <div className="flex flex-row items-center justify-between mb-4 gap-4">
                 <div className="min-w-0 flex-1 mr-4">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight truncate">{t.gallery_title}</h2>
-                    <p className="text-white/60 mt-1 text-xs md:text-base truncate">{t.gallery_subtitle}</p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight truncate">{t.gallery_title}</h2>
+                    <p className="text-slate-600 dark:text-white/60 mt-1 text-xs md:text-base truncate">{t.gallery_subtitle}</p>
                 </div>
                 
                 <div className="flex-shrink-0">
@@ -367,7 +367,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                     {isConfigured ? (
                         <label className={`
                             flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 
-                            rounded-full font-bold text-white cursor-pointer shadow-lg
+                            rounded-full font-bold text-slate-900 dark:text-white text-on-accent cursor-pointer shadow-lg
                             bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500
                             hover:opacity-90 active:scale-95 transition-all text-sm md:text-base
                             ${uploading ? 'opacity-70 cursor-not-allowed' : ''}
@@ -392,7 +392,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                             onClick={onOpenSettings}
                             className="
                                 flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 
-                                rounded-full font-bold text-white cursor-pointer shadow-lg
+                                rounded-full font-bold text-slate-900 dark:text-white text-on-accent cursor-pointer shadow-lg
                                 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500
                                 hover:opacity-90 active:scale-95 transition-all text-sm md:text-base
                             "
@@ -406,10 +406,10 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
              </div>
              
              {!isConfigured ? (
-                 <div className="flex-1 flex flex-col items-center justify-center text-white/30 space-y-4 min-h-[50vh] animate-in fade-in duration-500">
+                 <div className="flex-1 flex flex-col items-center justify-center text-slate-400 dark:text-white/30 space-y-4 min-h-[50vh] animate-in fade-in duration-500">
                      <div className="text-center space-y-2 max-w-md px-4">
-                         <h3 className="text-xl font-medium text-white/60">{t.gallery_setup_title || "Configure Cloud Gallery"}</h3>
-                         <p className="text-sm text-white/40 leading-relaxed">{t.gallery_setup_desc || "Connect your S3 or WebDAV storage to view your generated creations anywhere."}</p>
+                         <h3 className="text-xl font-medium text-slate-600 dark:text-white/60">{t.gallery_setup_title || "Configure Cloud Gallery"}</h3>
+                         <p className="text-sm text-slate-500 dark:text-white/40 leading-relaxed">{t.gallery_setup_desc || "Connect your S3 or WebDAV storage to view your generated creations anywhere."}</p>
                      </div>
                  </div>
              ) : loading ? (
@@ -417,9 +417,9 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                      <Loader2 className="w-10 h-10 text-purple-500 animate-spin" />
                  </div>
              ) : files.length === 0 ? (
-                 <div className="flex-1 flex flex-col items-center justify-center text-white/30 space-y-4 min-h-[50vh]">
+                 <div className="flex-1 flex flex-col items-center justify-center text-slate-400 dark:text-white/30 space-y-4 min-h-[50vh]">
                      <ImageIcon className="w-16 h-16 opacity-30" />
-                     <h3 className="text-xl font-medium text-white/50">{t.cloud_gallery_empty}</h3>
+                     <h3 className="text-xl font-medium text-slate-500 dark:text-white/50">{t.cloud_gallery_empty}</h3>
                      <p className="text-sm">{t.cloud_gallery_desc}</p>
                  </div>
              ) : (
@@ -433,15 +433,15 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                              return (
                                  <div 
                                      key={file.key} 
-                                     className="break-inside-avoid mb-4 group relative overflow-hidden bg-white/[0.02] hover:shadow-purple-500/10 transition-all duration-300"
+                                     className="break-inside-avoid mb-4 group relative overflow-hidden bg-slate-900/[0.02] dark:bg-white/[0.02] hover:shadow-purple-500/10 transition-all duration-300"
                                  >
                                      <div 
-                                        className="relative min-h-[150px] bg-white/5 flex items-center justify-center cursor-zoom-in"
+                                        className="relative min-h-[150px] bg-slate-900/5 dark:bg-white/5 flex items-center justify-center cursor-zoom-in"
                                         onClick={() => setFullscreenImage(file)}
                                      >
                                          {displayUrl ? (
                                              file.type === 'video' ? (
-                                                 <div className="relative w-full aspect-[9/16] bg-black/40 flex items-center justify-center">
+                                                 <div className="relative w-full aspect-[9/16] bg-slate-900/10 dark:bg-black/40 flex items-center justify-center">
                                                      <video 
                                                         src={displayUrl} 
                                                         className="w-full h-full object-cover pointer-events-none" 
@@ -462,20 +462,20 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                                              )
                                          ) : (
                                              <div className="flex items-center justify-center w-full h-40">
-                                                 <Loader2 className="w-6 h-6 text-white/20 animate-spin" />
+                                                 <Loader2 className="w-6 h-6 text-slate-400 dark:text-white/20 animate-spin" />
                                              </div>
                                          )}
                                          
                                          {/* Dark overlay on hover */}
-                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+                                         <div className="absolute inset-0 bg-white/0 dark:bg-black/0 group-hover:bg-slate-900/5 dark:group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
 
                                          {/* Bottom Toolbar Overlay */}
-                                         <div className="absolute bottom-0 left-0 right-0 p-1.5 flex items-end justify-between opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+                                         <div className="absolute bottom-0 left-0 right-0 p-1.5 flex items-end justify-between opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-gradient-to-t from-white/95 via-white/70 to-transparent dark:from-black/90 dark:via-black/50 pointer-events-none">
                                              
                                              {/* Left: Time & Size - HIDDEN on mobile */}
-                                             <div className="hidden md:flex flex-col gap-0.5 text-white/90 drop-shadow-md">
+                                             <div className="hidden md:flex flex-col gap-0.5 text-slate-900 dark:text-white/90 drop-shadow-md">
                                                  <span className="text-xs font-medium">{file.lastModified.toLocaleDateString()}</span>
-                                                 <span className="text-[10px] text-white/70">{(file.size / 1024 / 1024).toFixed(1)} MB</span>
+                                                 <span className="text-[10px] text-slate-700 dark:text-white/70">{(file.size / 1024 / 1024).toFixed(1)} MB</span>
                                              </div>
 
                                              {/* Right: Actions - Pointer events enabled */}
@@ -485,7 +485,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                                                  <Tooltip content={isNSFW ? t.unmark_nsfw : t.mark_nsfw} position="top">
                                                      <button 
                                                          onClick={(e) => { e.stopPropagation(); handleToggleNSFW(file); }}
-                                                         className={`p-2 hover:text-white hover:bg-white/10 rounded-full transition-all ${isNSFW ? 'text-purple-400' : 'text-white/80'}`}
+                                                         className={`p-2 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all ${isNSFW ? 'text-purple-400' : 'text-slate-800 dark:text-white/80'}`}
                                                      >
                                                          {togglingNsfwId === file.key ? <Loader2 className="w-4 h-4 animate-spin" /> : (isNSFW ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />)}
                                                      </button>
@@ -495,7 +495,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                                                  <Tooltip content={copiedPromptId === file.key ? t.copied : t.copy_prompt} position="top">
                                                      <button 
                                                          onClick={(e) => { e.stopPropagation(); handleCopyPrompt(file); }}
-                                                         className={`p-2 hover:text-white hover:bg-white/10 rounded-full transition-all ${copyPromptErrorId === file.key ? 'text-white/30 cursor-not-allowed' : 'text-white/80'}`}
+                                                         className={`p-2 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all ${copyPromptErrorId === file.key ? 'text-slate-400 dark:text-white/30 cursor-not-allowed' : 'text-slate-800 dark:text-white/80'}`}
                                                          disabled={copyingPromptId === file.key || copyPromptErrorId === file.key}
                                                      >
                                                          {copyingPromptId === file.key ? (
@@ -512,7 +512,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                                                  <Tooltip content={t.download} position="top">
                                                      <button 
                                                          onClick={(e) => { e.stopPropagation(); handleDownload(file); }}
-                                                         className="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                                                         className="p-2 text-slate-800 dark:text-white/80 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all"
                                                      >
                                                          <Download className="w-4 h-4" />
                                                  </button>
@@ -522,7 +522,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                                              <Tooltip content={t.delete} position="top">
                                                  <button 
                                                      onClick={(e) => { e.stopPropagation(); handleDeleteClick(file); }}
-                                                     className="p-2 text-white/80 hover:text-red-400 hover:bg-white/10 rounded-full transition-all"
+                                                     className="p-2 text-slate-800 dark:text-white/80 hover:text-red-400 hover:bg-slate-900/10 dark:hover:bg-white/10 rounded-full transition-all"
                                                  >
                                                      {deletingId === file.key ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
                                                  </button>
@@ -537,7 +537,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                      {/* Infinite Scroll Trigger */}
                      <div ref={observerTarget} className="h-20 w-full flex items-center justify-center mt-4">
                          {visibleFiles.length < files.length && (
-                             <div className="flex flex-col items-center gap-2 text-white/30">
+                             <div className="flex flex-col items-center gap-2 text-slate-400 dark:text-white/30">
                                  <Loader2 className="w-6 h-6 animate-spin" />
                              </div>
                          )}
@@ -550,7 +550,7 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
                 <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-in fade-in duration-200">
                     <button 
                         onClick={() => setFullscreenImage(null)}
-                        className="absolute top-4 right-4 z-[110] p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+                        className="absolute top-4 right-4 z-[110] p-2 bg-white/10 hover:bg-white/20 rounded-full text-on-accent transition-colors"
                     >
                         <X className="w-6 h-6" />
                     </button>
@@ -589,13 +589,13 @@ export const CloudGalleryView: React.FC<CloudGalleryViewProps> = ({ handleUpload
             {/* Delete Confirmation Modal */}
             {fileToDelete && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-                    <div className="bg-[#1A1625] border border-white/10 rounded-2xl p-6 max-w-sm w-full shadow-2xl animate-in zoom-in-95 duration-200">
-                        <h3 className="text-lg font-bold text-white mb-2">{t.delete}</h3>
-                        <p className="text-white/60 text-sm mb-6">{t.delete_confirm}</p>
+                    <div className="bg-white dark:bg-[#1A1625] border border-slate-900/10 dark:border-white/10 rounded-2xl p-6 max-w-sm w-full shadow-2xl animate-in zoom-in-95 duration-200">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{t.delete}</h3>
+                        <p className="text-slate-600 dark:text-white/60 text-sm mb-6">{t.delete_confirm}</p>
                         <div className="flex justify-end gap-3">
                             <button 
                                 onClick={() => setFileToDelete(null)}
-                                className="px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium"
+                                className="px-4 py-2 rounded-lg text-slate-600 dark:text-white/60 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/5 dark:hover:bg-white/5 transition-colors text-sm font-medium"
                             >
                                 {t.cancel}
                             </button>

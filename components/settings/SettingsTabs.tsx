@@ -49,7 +49,7 @@ export const SettingsTabs: React.FC<SettingsTabsProps> = ({ tabs, activeTab, set
     };
 
     return (
-        <div className="relative border-b border-white/[0.06]">
+        <div className="relative border-b border-slate-900/[0.06] dark:border-white/[0.06]">
             <div 
                 ref={tabsRef}
                 onScroll={checkTabsScroll}
@@ -60,7 +60,7 @@ export const SettingsTabs: React.FC<SettingsTabsProps> = ({ tabs, activeTab, set
                         key={tab.id}
                         data-tab-id={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`group relative py-4 text-sm font-medium transition-colors duration-300 flex items-center gap-2 flex-shrink-0 ${activeTab === tab.id ? 'text-white' : 'text-white/40 hover:text-white/80'}`}
+                        className={`group relative py-4 text-sm font-medium transition-colors duration-300 flex items-center gap-2 flex-shrink-0 ${activeTab === tab.id ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-white/40 hover:text-slate-800 dark:hover:text-white/80'}`}
                     >
                         <tab.icon className={`w-4 h-4 transition-colors duration-300 ${activeTab === tab.id ? 'text-purple-400' : 'text-current group-hover:text-purple-400/70'}`} />
                         {tab.label}
@@ -72,7 +72,7 @@ export const SettingsTabs: React.FC<SettingsTabsProps> = ({ tabs, activeTab, set
                 <button
                     onClick={handleScrollTabsRight}
                     disabled={!canScrollTabs}
-                    className={`pointer-events-auto p-1.5 rounded-full transition-all duration-300 ${canScrollTabs ? 'text-white bg-white/10 hover:bg-white/20 shadow-lg' : 'text-white/20'}`}
+                    className={`pointer-events-auto p-1.5 rounded-full transition-all duration-300 ${canScrollTabs ? 'text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 hover:bg-slate-900/20 dark:hover:bg-white/20 shadow-lg' : 'text-slate-400 dark:text-white/20'}`}
                 >
                     <ChevronRight className="w-4 h-4" />
                 </button>

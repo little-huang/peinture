@@ -27,20 +27,20 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
     return (
         <div className="space-y-6">
             <div>
-                <label className="flex items-center gap-2 text-xs font-medium text-white/80 mb-2">
+                <label className="flex items-center gap-2 text-xs font-medium text-slate-800 dark:text-white/80 mb-2">
                     <Languages className="w-3.5 h-3.5 text-purple-400" />
                     {t.language}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                     <button
                         onClick={() => setLanguage('en')}
-                        className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${language === 'en' ? 'bg-purple-600/90 border-purple-500/50 text-white shadow-lg shadow-purple-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                        className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${language === 'en' ? 'bg-purple-600/90 border-purple-500/50 text-on-accent shadow-lg shadow-purple-900/20' : 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-white hover:border-slate-900/20 dark:hover:border-white/20'}`}
                     >
                         English
                     </button>
                     <button
                         onClick={() => setLanguage('zh')}
-                        className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${language === 'zh' ? 'bg-purple-600/90 border-purple-500/50 text-white shadow-lg shadow-purple-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                        className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${language === 'zh' ? 'bg-purple-600/90 border-purple-500/50 text-on-accent shadow-lg shadow-purple-900/20' : 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-white hover:border-slate-900/20 dark:hover:border-white/20'}`}
                     >
                         中文
                     </button>
@@ -48,7 +48,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
             </div>
 
             <div>
-                <label className="flex items-center gap-2 text-xs font-medium text-white/80 mb-2">
+                <label className="flex items-center gap-2 text-xs font-medium text-slate-800 dark:text-white/80 mb-2">
                     {theme === 'light' ? <Sun className="w-3.5 h-3.5 text-yellow-400" /> :
                      theme === 'dark' ? <Moon className="w-3.5 h-3.5 text-indigo-400" /> :
                      <Monitor className="w-3.5 h-3.5 text-cyan-400" />}
@@ -65,7 +65,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                             <button
                                 key={option.id}
                                 onClick={() => setTheme(option.id)}
-                                className={`px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border flex items-center justify-center gap-1.5 ${theme === option.id ? 'bg-purple-600/90 border-purple-500/50 text-white shadow-lg shadow-purple-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                                className={`px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border flex items-center justify-center gap-1.5 ${theme === option.id ? 'bg-purple-600/90 border-purple-500/50 text-on-accent shadow-lg shadow-purple-900/20' : 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-white hover:border-slate-900/20 dark:hover:border-white/20'}`}
                             >
                                 <Icon className="w-3.5 h-3.5" />
                                 {option.label}
@@ -76,7 +76,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
             </div>
 
             <div>
-                <label className="flex items-center gap-2 text-xs font-medium text-white/80 mb-2">
+                <label className="flex items-center gap-2 text-xs font-medium text-slate-800 dark:text-white/80 mb-2">
                     <Router className="w-3.5 h-3.5 text-blue-400" />
                     {t.service_mode}
                 </label>
@@ -89,7 +89,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                         <button
                             key={option.id}
                             onClick={() => setServiceMode(option.id as ServiceMode)}
-                            className={`px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border truncate ${serviceMode === option.id ? 'bg-blue-600/90 border-blue-500/50 text-white shadow-lg shadow-blue-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                            className={`px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border truncate ${serviceMode === option.id ? 'bg-blue-600/90 border-blue-500/50 text-on-accent shadow-lg shadow-blue-900/20' : 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-white hover:border-slate-900/20 dark:hover:border-white/20'}`}
                         >
                             {option.label}
                         </button>
@@ -98,7 +98,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
             </div>
 
             <div>
-                <label className="flex items-center gap-2 text-xs font-medium text-white/80 mb-2">
+                <label className="flex items-center gap-2 text-xs font-medium text-slate-800 dark:text-white/80 mb-2">
                     <HardDrive className="w-3.5 h-3.5 text-green-400" />
                     {t.storage_service}
                 </label>
@@ -115,7 +115,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                                 if (option.id === 's3') setActiveTab('s3');
                                 if (option.id === 'webdav') setActiveTab('webdav');
                             }}
-                            className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${storageType === option.id ? 'bg-green-600/90 border-green-500/50 text-white shadow-lg shadow-green-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                            className={`px-3 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border ${storageType === option.id ? 'bg-green-600/90 border-green-500/50 text-on-accent shadow-lg shadow-green-900/20' : 'bg-slate-900/[0.03] dark:bg-white/[0.03] border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-white/60 hover:bg-slate-900/[0.06] dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-white hover:border-slate-900/20 dark:hover:border-white/20'}`}
                         >
                             {option.label}
                         </button>
@@ -123,12 +123,12 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                 </div>
             </div>
 
-            <div className="pt-2 border-t border-white/5">
+            <div className="pt-2 border-t border-slate-900/5 dark:border-white/5">
                 <label className="flex items-center gap-2 text-xs font-medium text-red-400 mb-2">
                     <Trash2 className="w-3.5 h-3.5" />
                     {t.clearData}
                 </label>
-                <p className="text-xs text-white/40 mb-3">{t.clearDataDesc}</p>
+                <p className="text-xs text-slate-500 dark:text-white/40 mb-3">{t.clearDataDesc}</p>
                 {!showClearConfirm ? (
                     <button onClick={() => setShowClearConfirm(true)} className="w-full py-2.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 rounded-xl text-xs font-medium transition-colors">
                         {t.clearData}
@@ -140,8 +140,8 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                             <span className="text-xs text-red-200 leading-relaxed">{t.clearDataConfirm}</span>
                         </div>
                         <div className="flex gap-2">
-                            <button onClick={() => setShowClearConfirm(false)} className="flex-1 py-2 bg-white/5 hover:bg-white/10 text-white/60 hover:text-white rounded-lg text-xs font-medium transition-colors">{t.cancel}</button>
-                            <button onClick={onClearData} className="flex-1 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg text-xs font-bold transition-colors shadow-lg shadow-red-900/20">{t.confirm}</button>
+                            <button onClick={() => setShowClearConfirm(false)} className="flex-1 py-2 bg-slate-900/5 dark:bg-white/5 hover:bg-slate-900/10 dark:hover:bg-white/10 text-slate-600 dark:text-white/60 hover:text-slate-900 dark:hover:text-white rounded-lg text-xs font-medium transition-colors">{t.cancel}</button>
+                            <button onClick={onClearData} className="flex-1 py-2 bg-red-600 hover:bg-red-500 text-on-accent rounded-lg text-xs font-bold transition-colors shadow-lg shadow-red-900/20">{t.confirm}</button>
                         </div>
                     </div>
                 )}
