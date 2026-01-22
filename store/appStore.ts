@@ -85,9 +85,12 @@ const migrateModelConfig = (key: string, defaultProvider: string, defaultModel: 
     return { provider: defaultProvider, model: defaultModel };
 };
 
+export type Theme = 'light' | 'dark' | 'system';
+
 interface AppState {
     // --- UI Settings (Persisted) ---
     language: Language;
+    theme: Theme;
     provider: ProviderOption;
     model: ModelOption;
     aspectRatio: AspectRatioOption;
@@ -139,6 +142,7 @@ interface AppState {
     
     // --- Actions ---
     setLanguage: (lang: Language) => void;
+    setTheme: (theme: Theme) => void;
     setProvider: (provider: ProviderOption) => void;
     setModel: (model: ModelOption) => void;
     setAspectRatio: (ar: AspectRatioOption) => void;
@@ -199,7 +203,9 @@ export const useAppStore = create<AppState>()(
                 const browserLang = navigator.language.toLowerCase();
                 return browserLang.startsWith('zh') ? 'zh' : 'en';
             })()),
-            
+
+            theme: getLocalItem<Theme>('app_theme', 'dark'),
+
             provider: getLocalItem<ProviderOption>('app_provider', 'huggingface'),
             model: getLocalItem<ModelOption>('app_model', HF_MODEL_OPTIONS[0].value as ModelOption),
             aspectRatio: getLocalItem<AspectRatioOption>('app_aspect_ratio', '1:1'),
@@ -262,6 +268,7 @@ export const useAppStore = create<AppState>()(
 
             // --- Actions Implementation ---
             setLanguage: (language) => set({ language }),
+            setTheme: (theme) => set({ theme }),
             setProvider: (provider) => set({ provider }),
             setModel: (model) => set({ model }),
             setAspectRatio: (aspectRatio) => set({ aspectRatio }),
@@ -387,6 +394,7 @@ export const useAppStore = create<AppState>()(
             storage: createJSONStorage(() => localStorage),
             partialize: (state) => ({
                 language: state.language,
+                theme: state.theme,
                 provider: state.provider,
                 model: state.model,
                 aspectRatio: state.aspectRatio,

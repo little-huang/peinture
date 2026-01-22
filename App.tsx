@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback, memo, useEffect } from 'react';
+import React, { useState, useCallback, memo, useEffect, useLayoutEffect } from 'react';
 import { useAppStore } from './store/appStore';
 import { useAppInit } from './hooks/useAppInit';
 import { useCloudUpload } from './hooks/useCloudUpload';
@@ -15,8 +15,49 @@ import { AuthModal } from './components/AuthModal';
 const MemoizedHeader = memo(Header);
 
 export default function App() {
-  const { currentView } = useAppStore();
-  
+  const { currentView, theme } = useAppStore();
+
+  // Apply theme to document root
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = (currentTheme: typeof theme) => {
+      if (currentTheme === 'dark') {
+        root.classList.add('dark');
+      } else if (currentTheme === 'light') {
+        root.classList.remove('dark');
+      } else {
+        // system mode
+        if (mediaQuery.matches) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      }
+    };
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      if (theme === 'system') {
+        if (e.matches) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      }
+    };
+
+    applyTheme(theme);
+
+    if (theme === 'system') {
+      mediaQuery.addEventListener('change', handleSystemThemeChange);
+    }
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, [theme]);
+
   // Transition State
   const [displayView, setDisplayView] = useState(currentView);
   const [isTransitioning, setIsTransitioning] = useState(false);

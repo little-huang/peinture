@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
-import { Languages, Router, HardDrive, Trash2, AlertCircle } from 'lucide-react';
+import { Languages, Router, HardDrive, Trash2, AlertCircle, Sun, Moon, Monitor } from 'lucide-react';
 import { useAppStore } from '../../store/appStore';
 import { translations } from '../../translations';
 import { ServiceMode, StorageType } from '../../types';
+import { Theme } from '../../store/appStore';
 
 interface GeneralTabProps {
     serviceMode: ServiceMode;
@@ -14,12 +15,12 @@ interface GeneralTabProps {
     setActiveTab: (tab: any) => void;
 }
 
-export const GeneralTab: React.FC<GeneralTabProps> = ({ 
-    serviceMode, setServiceMode, 
-    storageType, setStorageType, 
-    onClearData, setActiveTab 
+export const GeneralTab: React.FC<GeneralTabProps> = ({
+    serviceMode, setServiceMode,
+    storageType, setStorageType,
+    onClearData, setActiveTab
 }) => {
-    const { language, setLanguage } = useAppStore();
+    const { language, setLanguage, theme, setTheme } = useAppStore();
     const t = translations[language];
     const [showClearConfirm, setShowClearConfirm] = useState(false);
 
@@ -43,6 +44,34 @@ export const GeneralTab: React.FC<GeneralTabProps> = ({
                     >
                         中文
                     </button>
+                </div>
+            </div>
+
+            <div>
+                <label className="flex items-center gap-2 text-xs font-medium text-white/80 mb-2">
+                    {theme === 'light' ? <Sun className="w-3.5 h-3.5 text-yellow-400" /> :
+                     theme === 'dark' ? <Moon className="w-3.5 h-3.5 text-indigo-400" /> :
+                     <Monitor className="w-3.5 h-3.5 text-cyan-400" />}
+                    {t.theme}
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                    {[
+                        { id: 'light' as Theme, label: t.theme_light, icon: Sun },
+                        { id: 'dark' as Theme, label: t.theme_dark, icon: Moon },
+                        { id: 'system' as Theme, label: t.theme_system, icon: Monitor }
+                    ].map(option => {
+                        const Icon = option.icon;
+                        return (
+                            <button
+                                key={option.id}
+                                onClick={() => setTheme(option.id)}
+                                className={`px-2 py-2.5 rounded-xl text-xs font-medium transition-all duration-200 border flex items-center justify-center gap-1.5 ${theme === option.id ? 'bg-purple-600/90 border-purple-500/50 text-white shadow-lg shadow-purple-900/20' : 'bg-white/[0.03] border-white/10 text-white/60 hover:bg-white/[0.06] hover:text-white hover:border-white/20'}`}
+                            >
+                                <Icon className="w-3.5 h-3.5" />
+                                {option.label}
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 

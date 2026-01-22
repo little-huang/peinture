@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Logo } from './Icons';
 import { Tooltip } from './Tooltip';
 import { useAppStore } from '../store/appStore';
@@ -12,7 +12,9 @@ import {
   PencilRuler,
   ChevronDown,
   Check,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 export type AppView = 'creation' | 'editor' | 'gallery';
@@ -22,13 +24,42 @@ interface HeaderProps {
   onOpenFAQ: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ 
-  onOpenSettings, 
+export const Header: React.FC<HeaderProps> = ({
+  onOpenSettings,
   onOpenFAQ
 }) => {
-  const { language, currentView, setCurrentView } = useAppStore();
+  const { language, currentView, setCurrentView, theme, setTheme } = useAppStore();
   const t = translations[language];
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    return theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
+  // Subscribe to system theme changes and theme state changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const updateIsDark = () => {
+      setIsDark(theme === 'dark' || (theme === 'system' && mediaQuery.matches));
+    };
+
+    const handleMediaChange = () => {
+      if (theme === 'system') {
+        updateIsDark();
+      }
+    };
+
+    updateIsDark();
+    mediaQuery.addEventListener('change', handleMediaChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaChange);
+    };
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
 
   return (
     <header className="w-full backdrop-blur-md sticky top-0 z-50 bg-background-dark/30 border-b border-white/5">
@@ -147,6 +178,16 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Github className="w-5 h-5" />
               </a>
+          </Tooltip>
+
+          <Tooltip content={isDark ? t.theme_light : t.theme_dark} position="bottom">
+              <button
+                onClick={toggleTheme}
+                aria-label={isDark ? t.theme_light : t.theme_dark}
+                className="flex items-center justify-center p-2 rounded-lg text-white/70 hover:text-yellow-400 hover:bg-white/10 transition-all active:scale-95"
+              >
+                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
           </Tooltip>
 
           <Tooltip content={t.help} position="bottom">
