@@ -321,7 +321,7 @@ export const ImageEditorView: React.FC<ImageEditorViewProps> = ({ onOpenSettings
                 ref={containerRef}
                 onContextMenu={handleContextMenu}
                 className="flex-1 w-full relative overflow-hidden bg-slate-50 dark:bg-[#0D0B14] cursor-crosshair rounded-none border-none md:rounded-xl md:border md:border-slate-900/5 dark:md:border-white/5"
-                style={{ backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '20px 20px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, var(--editor-grid) 1px, transparent 1px)', backgroundSize: '20px 20px' }}
             >
                 {isGenerating && (
                     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/80 dark:bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
